@@ -1,7 +1,15 @@
+/* General Styles */
+
 body {
   background-color: #F44336;
   border-top: 14px solid #D32F2F;
   color: #fff;
+  text-align: center;
+}
+
+/* Landing Body */
+
+.landing-body {
   text-align: center;
 }
 
@@ -30,4 +38,23 @@ body {
   border-color: rgb(158, 158, 158);
   font-size: 2.5rem;
   margin-top: 22px;
+}
+
+/* Signup Body */
+
+.signup h1 {
+  margin-bottom: 30px;
+  font-size: 5em;
+}
+
+.signup-form label {
+  font-size: 2rem;
+  color: #FFCDD2;
+}
+
+.signup-form button {
+  background-color: #9E9E9E;
+  border: #9E9E9E;
+  color: #fff;
+  margin-top: 12px;
 }

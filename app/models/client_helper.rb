@@ -1,7 +1,7 @@
 module ClientHelper
-  
+
   def self.parse_client_params(params)
-    client = Client.new(identifier: params[:identifier],
+    client = Client.new(identifier: params[:identifier].downcase,
                         root_url:   params[:rootUrl])
 
     if client.save

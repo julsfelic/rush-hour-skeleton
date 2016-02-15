@@ -7,7 +7,10 @@ module RushHour
 
     def render_payload_requests(client)
       if client.payload_requests.empty?
-        erb :app_error, locals: { msg: "No payload data has been received for this source." }
+        erb :app_error, locals: {
+          msg: "No payload data has been received for this source.",
+          client: client
+        }
       else
         erb :statistics
       end
@@ -15,6 +18,10 @@ module RushHour
 
     get '/' do
       erb :landing
+    end
+
+    get '/signup' do
+      erb :signup
     end
 
     post '/sources' do
