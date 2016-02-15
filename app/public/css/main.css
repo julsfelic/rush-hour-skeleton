@@ -1,0 +1,33 @@
+body {
+  background-color: #F44336;
+  border-top: 14px solid #D32F2F;
+  color: #fff;
+  text-align: center;
+}
+
+.landing {
+  margin-top: -14px;
+  position: relative;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.landing h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14rem;
+  margin: 0;
+}
+
+.landing p {
+  color: #FFCDD2;
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.landing a {
+  background-color: #9E9E9E;
+  color: rgb(255, 255, 255);
+  border-color: rgb(158, 158, 158);
+  font-size: 2.5rem;
+  margin-top: 22px;
+}

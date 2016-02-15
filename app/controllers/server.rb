@@ -13,6 +13,10 @@ module RushHour
       end
     end
 
+    get '/' do
+      erb :landing
+    end
+
     post '/sources' do
       ClientHelper.parse_client_params(params)
     end
