@@ -1,10 +1,13 @@
-<!-- <%= erb :_navbar %> -->
-<h1>Urls</h1>
+<%= erb :_navbar %>
 
-<ul>
-  <% urls.each do |url| %>
-  <li>
-    <a href="/sources/<%= @client.identifier %>/urls/<%= url.split("/")[3..-1].join %>"><%= url %></a>
-  </li>
-  <% end %>
-</ul>
+<div class="container client-container">
+  <h1>Urls</h1>
+
+  <ul>
+    <% urls.each do |url| %>
+    <li>
+      <a href="/sources/<%= @client.identifier %>/urls/<%= url.split("/")[3..-1].join %>"><%= url %></a>
+    </li>
+    <% end %>
+  </ul>
+</div>

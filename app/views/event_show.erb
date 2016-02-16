@@ -1,18 +1,23 @@
-<div class="well well-sm">
-<h1>Event: <%= @event %></h1>
-<p>Total: <%= @client.event_total(@event) %></p>
+<%= erb :_navbar %>
+
+<div class="well well-sm event-header">
+  <h1>Event: <%= @event %></h1>
+  <p>Total: <%= @client.event_total(@event) %></p>
 </div>
-<table class="table">
-  <thread>
-  <tr>
-    <th><strong>Hours</strong></th>
-    <th><strong>occurances</strong></th>
-  </tr>
-</thread>
-  <tr>
-<% @client.event_breakdown(@event).each do |data| %>
-    <td><%= data[0] %></td>
-    <td><%= data[1] %></td>
+
+<div>
+  <table class="table table-bordered client-table">
+    <thread>
+      <tr>
+        <th><strong>Hours</strong></th>
+        <th><strong>Occurrences</strong></th>
+      </tr>
+    </thread>
+    <% @client.event_breakdown(@event).each do |data| %>
+      <tr>
+          <td><%= data[0] %></td>
+          <td><%= data[1] %></td>
+      </tr>
     <% end %>
-  </tr>
-</table>
+  </table>
+</div>
