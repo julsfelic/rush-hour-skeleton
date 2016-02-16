@@ -65,14 +65,14 @@ module RushHour
       @client = ClientHelper.find_client(identifier)
       urls = @client.url_requests.pluck(:url).uniq
 
-      erb :urls, locals: { urls: urls }
+      erb :'/urls/urls', locals: { urls: urls }
     end
 
     get '/sources/:identifier/urls/:path' do |identifier, path|
       @url = UrlRequestHelper.find_url(identifier, path)
 
       if @url
-        erb :url_stats
+        erb :'/urls/url_stats'
       else
         erb :'errors/url_does_not_exist'
       end
