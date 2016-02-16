@@ -1,3 +1,8 @@
-<h1>Oh no! There seems to be an error!</h1>
+<div class="container client-container">
+  <% if defined?(client) %>
+    <h1>Welcome, <%= client.identifier.capitalize %>!</h1>
+  <% end %>
+  <h2>Oh no! There seems to be an error!</h2>
 
-<h2><%= msg %></h2>
+  <h3><%= msg %></h3>
+</div>

@@ -8,11 +8,11 @@ class ClientReceivesErrorPageIfIdentifierDoesNotExistTest < FeatureTest
 
     assert_equal '/sources/hopstartlabs', current_path
 
-    within('h1') do
+    within('h2') do
       assert page.has_content? "Oh no! There seems to be an error!"
     end
 
-    within('h2') do
+    within('h3') do
       assert page.has_content? "Identifier does not exist"
     end
   end
