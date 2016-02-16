@@ -2,13 +2,13 @@ module RushHour
   class Server < Sinatra::Base
 
     not_found do
-      erb :error
+      erb :'errors/error'
     end
 
     def render_payload_requests(client)
       if client.payload_requests.empty?
-        erb :app_error, locals: { msg: "No payload data has been received for this source.",
-                                  client: client }
+        erb :'errors/app_error', locals: { msg: "No payload data has been received for this source.",
+                                           client: client }
       else
         erb :statistics
       end
@@ -30,7 +30,7 @@ module RushHour
       @client = ClientHelper.find_client(identifier)
 
       if @client.nil?
-        erb :app_error, locals: { msg: "Identifier does not exist" }
+        erb :'errors/app_error', locals: { msg: "Identifier does not exist" }
       else
         render_payload_requests(@client)
       end
@@ -57,7 +57,7 @@ module RushHour
       if @client.payload_requests.find_by(event_name: event)
         erb :event_show
       else
-        erb :event_error
+        erb :'errors/event_error'
       end
     end
 
@@ -74,7 +74,7 @@ module RushHour
       if @url
         erb :url_stats
       else
-        erb :url_does_not_exist
+        erb :'errors/url_does_not_exist'
       end
     end
   end
