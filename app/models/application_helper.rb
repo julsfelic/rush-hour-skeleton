@@ -6,6 +6,4 @@ module ApplicationHelper
   def self.parse_json(json)
     JSON.parse(json, symbolize_names: true)
   end
-
-
 end

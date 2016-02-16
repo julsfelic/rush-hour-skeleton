@@ -5,7 +5,6 @@ class Resolution < ActiveRecord::Base
   validates :resolution_height, presence: true
   validates_uniqueness_of :resolution_width, scope: [:resolution_height]
 
-  # composite key
   def self.resolution_breakdown
     pluck(:resolution_width, :resolution_height).uniq
   end

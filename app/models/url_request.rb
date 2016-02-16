@@ -25,12 +25,14 @@ class UrlRequest < ActiveRecord::Base
   end
 
   def top_three_referrers
-    referrer_ids = payload_requests.group(:referrer_id).order("count(*) DESC").pluck(:referrer_id)[0..2]
+    referrer_ids = payload_requests.group(:referrer_id).order("count(*) DESC")
+                                   .pluck(:referrer_id)[0..2]
     referrer_ids.map { |id| Referrer.find(id).referred_by }
   end
 
   def three_most_popular_user_agents
-    user_agent_ids = payload_requests.group(:user_agent_id).order("count(*) DESC").pluck(:user_agent_id)[0..2]
+    user_agent_ids = payload_requests.group(:user_agent_id).order("count(*) DESC")
+                                     .pluck(:user_agent_id)[0..2]
     user_agent_ids.map do |id|
       user_agent = UserAgent.find(id)
       "#{user_agent.browser}, #{user_agent.os}"

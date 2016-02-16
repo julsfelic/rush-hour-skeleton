@@ -8,7 +8,8 @@ module PayloadRequestHelper
   end
 
   def self.find_or_create_resolution(width, height)
-    Resolution.find_or_create_by(resolution_width: width, resolution_height: height)
+    Resolution.find_or_create_by(resolution_width: width,
+                                 resolution_height: height)
   end
 
   def self.find_or_create_url(url)
@@ -26,7 +27,6 @@ module PayloadRequestHelper
   end
 
   def self.format_payload(payload)
-
     {
       referrer:    self.find_or_create_referrer(payload[:referredBy]).id,
       ip_address:  self.find_or_create_ip(payload[:ip]).id,

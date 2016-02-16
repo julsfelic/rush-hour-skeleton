@@ -1,5 +1,4 @@
 class Client < ActiveRecord::Base
-
   has_many :payload_requests
   has_many :ip_addresses,    through: :payload_requests
   has_many :referrers,       through: :payload_requests

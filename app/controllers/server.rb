@@ -7,10 +7,8 @@ module RushHour
 
     def render_payload_requests(client)
       if client.payload_requests.empty?
-        erb :app_error, locals: {
-          msg: "No payload data has been received for this source.",
-          client: client
-        }
+        erb :app_error, locals: { msg: "No payload data has been received for this source.",
+                                  client: client }
       else
         erb :statistics
       end
@@ -48,12 +46,14 @@ module RushHour
 
     get '/sources/:identifier/events' do |identifier|
       @client = ClientHelper.find_client(identifier)
+
       erb :event_index
     end
 
     get '/sources/:identifier/events/:event' do |identifier, event|
       @client = ClientHelper.find_client(identifier)
       @event  = event
+
       if @client.payload_requests.find_by(event_name: event)
         erb :event_show
       else
@@ -64,11 +64,13 @@ module RushHour
     get '/sources/:identifier/urls' do |identifier|
       @client = ClientHelper.find_client(identifier)
       urls = @client.url_requests.pluck(:url).uniq
+
       erb :urls, locals: { urls: urls }
     end
 
     get '/sources/:identifier/urls/:path' do |identifier, path|
       @url = UrlRequestHelper.find_url(identifier, path)
+
       if @url
         erb :url_stats
       else

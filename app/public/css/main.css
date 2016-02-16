@@ -70,10 +70,6 @@ body {
   padding-top: 0;
 }
 
-/*.landing-body {
-  text-align: center;
-}*/
-
 .landing {
   position: relative;
   transform: translateY(75%);
